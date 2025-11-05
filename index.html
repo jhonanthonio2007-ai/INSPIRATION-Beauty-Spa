@@ -26,6 +26,48 @@ header .brand img:hover{
 
 </style>
   <style>
+/* =======================
+   GALERÍA DE FOTOS
+   ======================= */
+
+/* Ajustamos solo la galería dentro de #gallery */
+#gallery .gallery{
+  display: grid;
+  gap: 10px;
+}
+
+/* En desktop: 3 imágenes por fila */
+@media (min-width: 900px){
+  #gallery .gallery{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* En tablet: 2 por fila */
+@media (min-width: 600px) and (max-width: 899px){
+  #gallery .gallery{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* En celular: 2 por fila (más cuadraditas) */
+@media (max-width: 599px){
+  #gallery .gallery{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mantener las fotos bien recortadas dentro del cuadrito */
+#gallery .gallery .ph{
+  width: 100%;
+  height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+}
+</style>
+
+  <style>
 /* ========= 1) Ajustes generales para móvil ========= */
 @media (max-width: 480px){
   .container{
