@@ -26,92 +26,96 @@ header .brand img:hover{
 
 </style>
 <style>
-/* ========= 1) Ajustes generales para móvil ========= */
-@media (max-width: 480px){
-  .container{
-    padding: 0 16px;
+/* =======================
+   REVIEWS / OPINIONES
+   ======================= */
+
+/* Layout base: grid con espacio entre tarjetas */
+#reviews .grid{
+  display: grid;
+  gap: 16px;
+  margin-top: 22px;
+}
+<style>
+/* =======================
+   GALERÍA DE FOTOS
+   ======================= */
+
+/* Ajustamos solo la galería dentro de #gallery */
+#gallery .gallery{
+  display: grid;
+  gap: 10px;
+}
+
+/* En desktop: 3 imágenes por fila */
+@media (min-width: 900px){
+  #gallery .gallery{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-/* ========= 2) HERO / PORTADA FULL-PANTALLA Y CENTRADO ========= */
-
-/* Quitar padding extra del section genérico en el hero */
-#hero{
-  padding: 0;
-  /* Que la portada siempre llene la pantalla */
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+/* En tablet: 2 por fila */
+@media (min-width: 600px) and (max-width: 899px){
+  #gallery .gallery{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-/* Asegurar que el contenido ocupe todo el ancho */
-#hero .content{
+/* En celular: 2 por fila (más cuadraditas) */
+@media (max-width: 599px){
+  #gallery .gallery{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mantener las fotos bien recortadas dentro del cuadrito */
+#gallery .gallery .ph{
   width: 100%;
+  height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
 }
+</style>
 
-/* ========= 3) Versión móvil: texto más compacto y botones en columna ========= */
-@media (max-width: 768px){
-
-  /* Header un poco más flexible en móvil */
-  header.nav .inner{
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  header.nav nav{
-    flex-wrap: wrap;
-    row-gap: 4px;
-    column-gap: 10px;
-    font-size: 0.85rem;
-  }
-
-  /* Hero: que se vea bien debajo del header sticky */
-  #hero{
-    min-height: calc(100vh - 70px); /* 70px aprox altura del header */
-    align-items: flex-start;
-  }
-
-  /* Menos padding vertical para que todo quepa en la pantalla */
-  #hero .content{
-    padding: 80px 0 50px;
-  }
-
-  /* Títulos y textos un poco más pequeños en cel */
-  #hero h1{
-    font-size: clamp(2rem, 7vw, 2.6rem) !important;
-    line-height: 1.15;
-  }
-
-  #hero p.muted{
-    font-size: 1rem !important;
-    max-width: 34rem;
-  }
-
-  #hero .chip{
-    font-size: 0.75rem !important;
-  }
-
-  /* Botones: de fila → columna en móvil, ocupando ancho */
-  /* Este selector apunta al contenedor de botones que tiene style="display:flex" inline */
-  #hero .content > div > div[style*="display:flex"]{
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 10px !important;
-    margin-top: 18px !important;
-  }
-
-  #hero .btn,
-  #hero a.btn{
-    width: 100%;
-    justify-content: center;
+/* En pantallas grandes: 3 columnas */
+@media (min-width: 900px){
+  #reviews .grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-/* ========= 4) Opcional: menos partículas en móvil (portada más limpia/ligera) ========= */
-@media (max-width: 600px){
-  .particle{
-    display: none;
+/* En tablet y celular: 1 tarjeta por fila (texto ancho y bonito) */
+@media (max-width: 899px){
+  #reviews .grid{
+    grid-template-columns: 1fr !important;
   }
+}
+
+/* Estilo de cada opinión */
+#reviews article.card{
+  background: rgba(0,0,0,.35);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.16);
+  padding: 14px 16px;
+}
+
+/* Estrellitas centradas */
+#reviews article.card > div[style*="font-size"]{
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+/* Texto de la opinión más legible */
+#reviews .quote{
+  font-size: .98rem;
+  line-height: 1.6;
+}
+
+/* Nombre (— Daniela, etc.) un poco más suave */
+#reviews .muted{
+  font-size: .9rem;
+  opacity: .8;
 }
 </style>
 
