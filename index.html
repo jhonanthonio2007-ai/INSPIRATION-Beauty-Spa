@@ -26,6 +26,40 @@ header .brand img:hover{
 
 </style>
   <style>
+/* ============================
+   HERO – ajuste especial móvil
+   ============================ */
+@media (max-width: 768px){
+
+  /* Que el hero NO esté forzado a 100vh y se adapte a la imagen */
+  #hero{
+    display: block;
+    min-height: auto !important;
+    padding-top: 90px;   /* espacio por el menú fijo */
+    padding-bottom: 40px;
+  }
+
+  /* Menos padding interno para que todo quepa mejor */
+  #hero .content{
+    padding: 0;
+  }
+
+  /* Fondo con la foto del spa: que ENCOJA en vez de recortarse */
+  #hero::before{
+    background-size: contain !important;      /* muestra casi toda la imagen */
+    background-position: top center !important;
+  }
+
+  /* Por si la imagen está dentro de algún contenedor extra */
+  #hero .hero-bg,
+  #hero .hero-media,
+  #hero .card{
+    max-width: 100%;
+  }
+}
+</style>
+
+  <style>
 /* =======================
    GALERÍA DE FOTOS
    ======================= */
