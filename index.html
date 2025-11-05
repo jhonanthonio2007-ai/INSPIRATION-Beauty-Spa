@@ -25,6 +25,96 @@ header .brand img:hover{
 }
 
 </style>
+  <style>
+/* ========= 1) Ajustes generales para móvil ========= */
+@media (max-width: 480px){
+  .container{
+    padding: 0 16px;
+  }
+}
+
+/* ========= 2) HERO / PORTADA FULL-PANTALLA Y CENTRADO ========= */
+
+/* Quitar padding extra del section genérico en el hero */
+#hero{
+  padding: 0;
+  /* Que la portada siempre llene la pantalla */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Asegurar que el contenido ocupe todo el ancho */
+#hero .content{
+  width: 100%;
+}
+
+/* ========= 3) Versión móvil: texto más compacto y botones en columna ========= */
+@media (max-width: 768px){
+
+  /* Header un poco más flexible en móvil */
+  header.nav .inner{
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  header.nav nav{
+    flex-wrap: wrap;
+    row-gap: 4px;
+    column-gap: 10px;
+    font-size: 0.85rem;
+  }
+
+  /* Hero: que se vea bien debajo del header sticky */
+  #hero{
+    min-height: calc(100vh - 70px); /* 70px aprox altura del header */
+    align-items: flex-start;
+  }
+
+  /* Menos padding vertical para que todo quepa en la pantalla */
+  #hero .content{
+    padding: 80px 0 50px;
+  }
+
+  /* Títulos y textos un poco más pequeños en cel */
+  #hero h1{
+    font-size: clamp(2rem, 7vw, 2.6rem) !important;
+    line-height: 1.15;
+  }
+
+  #hero p.muted{
+    font-size: 1rem !important;
+    max-width: 34rem;
+  }
+
+  #hero .chip{
+    font-size: 0.75rem !important;
+  }
+
+  /* Botones: de fila → columna en móvil, ocupando ancho */
+  /* Este selector apunta al contenedor de botones que tiene style="display:flex" inline */
+  #hero .content > div > div[style*="display:flex"]{
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    margin-top: 18px !important;
+  }
+
+  #hero .btn,
+  #hero a.btn{
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ========= 4) Opcional: menos partículas en móvil (portada más limpia/ligera) ========= */
+@media (max-width: 600px){
+  .particle{
+    display: none;
+  }
+}
+</style>
+
 <style>
 /* =======================
    REVIEWS / OPINIONES
